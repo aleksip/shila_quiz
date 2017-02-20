@@ -1,0 +1,17 @@
+name: 'Shila Quiz'
+type: module
+core: 8.x
+package: Shila
+dependencies:
+  - ds
+  - entity_reference_revisions
+  - field
+  - language
+  - menu_ui
+  - node
+  - paragraphs
+  - path
+  - shila_core
+  - shila_paragraphs
+  - text
+  - user

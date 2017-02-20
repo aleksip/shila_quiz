@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.quiz.field_content
+    - field.field.node.quiz.field_quiz_questions
+    - field.field.node.quiz.field_quiz_results
+    - node.type.quiz
+  module:
+    - ds
+    - entity_reference_revisions
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: pattern_shila_quiz
+      path: ''
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        pattern:
+          field_templates: only_content
+    regions:
+      content:
+        - field_content
+      questions:
+        - field_quiz_questions
+      results:
+        - field_quiz_results
+id: node.quiz.default
+targetEntityType: node
+bundle: quiz
+mode: default
+content:
+  field_content:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_quiz_questions:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_quiz_results:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  links: true

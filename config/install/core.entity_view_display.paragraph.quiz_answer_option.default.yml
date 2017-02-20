@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quiz_answer_option.field_answer_feedback
+    - field.field.paragraph.quiz_answer_option.field_answer_points
+    - field.field.paragraph.quiz_answer_option.field_plain_content
+    - paragraphs.paragraphs_type.quiz_answer_option
+  module:
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: pattern_shila_quiz_answer_option
+      path: ''
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        pattern:
+          field_templates: only_content
+    regions:
+      points:
+        - field_answer_points
+      feedback:
+        - field_answer_feedback
+      option:
+        - field_plain_content
+id: paragraph.quiz_answer_option.default
+targetEntityType: paragraph
+bundle: quiz_answer_option
+mode: default
+content:
+  field_answer_feedback:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_answer_points:
+    type: number_integer
+    weight: 0
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_plain_content:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden:
+  created: true
+  uid: true

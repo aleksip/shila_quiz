@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_points_required
+    - paragraphs.paragraphs_type.quiz_result
+id: paragraph.quiz_result.field_points_required
+field_name: field_points_required
+entity_type: paragraph
+bundle: quiz_result
+label: 'Points required'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

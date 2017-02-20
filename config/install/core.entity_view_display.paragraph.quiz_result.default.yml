@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quiz_result.field_content
+    - field.field.paragraph.quiz_result.field_points_required
+    - paragraphs.paragraphs_type.quiz_result
+  module:
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: pattern_shila_quiz_result
+      path: ''
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        pattern:
+          field_templates: only_content
+    regions:
+      points_required:
+        - field_points_required
+      result:
+        - field_content
+id: paragraph.quiz_result.default
+targetEntityType: paragraph
+bundle: quiz_result
+mode: default
+content:
+  field_content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_points_required:
+    type: number_integer
+    weight: 0
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

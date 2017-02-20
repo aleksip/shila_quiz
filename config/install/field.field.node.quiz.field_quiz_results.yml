@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quiz_results
+    - node.type.quiz
+    - paragraphs.paragraphs_type.quiz_result
+  module:
+    - entity_reference_revisions
+id: node.quiz.field_quiz_results
+field_name: field_quiz_results
+entity_type: node
+bundle: quiz
+label: 'Quiz results'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      quiz_result: quiz_result
+    target_bundles_drag_drop:
+      code:
+        weight: 8
+        enabled: false
+      formatted_text:
+        weight: 9
+        enabled: false
+      lead:
+        weight: 10
+        enabled: false
+      media:
+        weight: 11
+        enabled: false
+      note:
+        weight: 12
+        enabled: false
+      quiz_question:
+        weight: 13
+        enabled: false
+      quiz_answer_option:
+        weight: 14
+        enabled: false
+      quiz_result:
+        enabled: true
+        weight: 16
+field_type: entity_reference_revisions

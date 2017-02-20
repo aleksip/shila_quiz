@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.quiz.field_content
+    - field.field.node.quiz.field_quiz_questions
+    - field.field.node.quiz.field_quiz_results
+    - node.type.quiz
+  module:
+    - user
+id: node.quiz.teaser
+targetEntityType: node
+bundle: quiz
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_content: true
+  field_quiz_questions: true
+  field_quiz_results: true
+  langcode: true

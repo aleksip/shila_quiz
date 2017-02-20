@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Implements template_preprocess_ds_entity_view().
+ */
+function shila_quiz_preprocess_ds_entity_view(&$variables) {
+  if ($variables['content']['#entity_type'] == 'paragraph'
+    && $variables['content']['#bundle'] == 'quiz_answer_option'
+    && isset($variables['content']['#type'])
+    && $variables['content']['#type'] == 'pattern')
+  {
+    $entity = $variables['content']['#entity'];
+    $parentEntity = $entity->getParentEntity();
+    $delta = NULL;
+    $refEntities = $parentEntity->get('field_quiz_answer_options')->referencedEntities();
+    foreach ($refEntities as $i => $refEntity)  {
+      if ($entity->id() == $refEntity->id()) {
+        $delta = $i;
+        break;
+      }
+    }
+    $variables['content']['#context'] = [
+      'type' => 'layout',
+      'entity_type' => $variables['content']['#entity_type'],
+      'bundle' => $variables['content']['#bundle'],
+      'view_mode' => $variables['content']['#view_mode'],
+      'entity' => $entity,
+      'parent_id' => $parentEntity->id(),
+      'delta' => $delta,
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function shila_quiz_preprocess_pattern_shila_quiz_answer_option(&$variables) {
+  $variables['option_group_name'] = 'question_' . $variables['context']->getProperty('parent_id');
+  $variables['option_value'] = 'option_' . $variables['context']->getProperty('delta');
+}

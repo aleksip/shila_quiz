@@ -1,0 +1,89 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.quiz.field_content
+    - field.field.node.quiz.field_quiz_questions
+    - field.field.node.quiz.field_quiz_results
+    - node.type.quiz
+  module:
+    - paragraphs
+    - path
+id: node.quiz.default
+targetEntityType: node
+bundle: quiz
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+  field_content:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_quiz_questions:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_quiz_results:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
