@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Add information about the entity and its parent to the pattern context of
+ * quiz_answer_option paragraphs.
+ *
  * Implements template_preprocess_ds_entity_view().
  */
 function shila_quiz_preprocess_ds_entity_view(&$variables) {
@@ -32,9 +35,24 @@ function shila_quiz_preprocess_ds_entity_view(&$variables) {
 }
 
 /**
- * Implements hook_preprocess().
+ * Set pattern variables based on data in the pattern context.
+ *
+ * Implements hook_preprocess_HOOK().
  */
 function shila_quiz_preprocess_pattern_shila_quiz_answer_option(&$variables) {
   $variables['option_group_name'] = 'question_' . $variables['context']->getProperty('parent_id');
   $variables['option_value'] = 'option_' . $variables['context']->getProperty('delta');
+}
+
+/**
+ * Set default translated button text variable if required. The translation is
+ * done here so that the Twig component template does not have to use the Drupal
+ * specific translation filter.
+ *
+ * Implements hook_preprocess_HOOK().
+ */
+function shila_quiz_preprocess_pattern_shila_quiz(&$variables) {
+  if (!isset($variables['button_text']) || empty($variables['button_text'])) {
+    $variables['button_text'] = t('Show result');
+  }
 }

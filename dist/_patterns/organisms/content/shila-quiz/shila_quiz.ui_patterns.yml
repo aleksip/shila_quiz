@@ -1,0 +1,57 @@
+shila_quiz:
+  label: Quiz
+  description: A multi-choice quiz.
+  fields:
+    content:
+      type: string
+      label: Content
+      description: Content shown before actual quiz.
+      preview: Take this quiz and find out how smart you really are.
+    questions:
+      type: component
+      label: Questions
+      description: The questions.
+      preview:
+        - type: pattern
+          id: shila_quiz_question
+          fields:
+            question: Is this a default question?
+            answer_options:
+              - type: pattern
+                id: shila_quiz_answer_option
+                option: Yes
+                points: 1
+                feedback: That is correct!
+                option_group_name: question_1
+                option_value: option_1
+              - type: pattern
+                id: shila_quiz_answer_option
+                option: No
+                points: 0
+                feedback: You got it wrong, sorry...
+                option_group_name: question_1
+                option_value: option_2
+        - type: pattern_preview
+          id: shila_quiz_question
+        - type: pattern_preview
+          id: shila_quiz_question
+    button_text:
+      type: string
+      label: Button text
+      description: The text to show on the button that will reveal the result of a completed quiz.
+      preview: Show results
+    results:
+      type: component
+      label: Results
+      description: List of different possible results from completing the quiz.
+      preview:
+        - type: pattern_preview
+          id: shila_quiz_result
+        - type: pattern_preview
+          id: shila_quiz_result
+  libraries:
+    - shila_quiz/shila-quiz-styling
+    - shila-quiz-js:
+        js:
+          shila-quiz.js: {}
+  use: '@shila_quiz/organisms/content/shila-quiz/shila-quiz.html.twig'

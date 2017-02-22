@@ -1,0 +1,15 @@
+{
+  "name": "shila_quiz",
+  "version": "1.0.0",
+  "description": "A Features module for Drupal 8",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "shila-css": "^1.0.0-alpha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aleksip/shila_quiz"
+  },
+  "license": "GPL-2.0"
+}

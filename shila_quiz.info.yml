@@ -14,4 +14,10 @@ dependencies:
   - shila_core
   - shila_paragraphs
   - text
+  - ui_patterns
+  - ui_patterns_layouts
   - user
+component-libraries:
+  shila_quiz:
+    paths:
+      - dist/_patterns

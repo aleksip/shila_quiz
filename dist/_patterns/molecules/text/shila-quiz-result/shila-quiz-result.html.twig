@@ -1,0 +1,12 @@
+{% if points_required %}
+  {% set points_required %}{{ points_required }}{% endset %}
+{% endif %}
+{%
+  set classes = [
+    'quiz-result',
+    points_required ? 'quiz-result--points-required-' ~ points_required,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ result }}
+</div>

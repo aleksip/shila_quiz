@@ -1,0 +1,5 @@
+shila-quiz-styling:
+  version: 1.x
+  css:
+    theme:
+      dist/css/shila-quiz.css: {}
