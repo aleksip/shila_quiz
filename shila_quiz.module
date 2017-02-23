@@ -22,15 +22,8 @@ function shila_quiz_preprocess_ds_entity_view(&$variables) {
         break;
       }
     }
-    $variables['content']['#context'] = [
-      'type' => 'layout',
-      'entity_type' => $variables['content']['#entity_type'],
-      'bundle' => $variables['content']['#bundle'],
-      'view_mode' => $variables['content']['#view_mode'],
-      'entity' => $entity,
-      'parent_id' => $parentEntity->id(),
-      'delta' => $delta,
-    ];
+    $variables['content']['#context']['parent_id'] = $parentEntity->id();
+    $variables['content']['#context']['delta'] = $delta;
   }
 }
 
