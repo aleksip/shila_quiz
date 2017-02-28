@@ -10,7 +10,7 @@ entity_type: paragraph
 bundle: quiz_answer_option
 label: 'Answer points'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
