@@ -3,3 +3,4 @@ status: true
 dependencies: {  }
 id: quiz_question
 label: 'Quiz question'
+behavior_plugins: {  }
