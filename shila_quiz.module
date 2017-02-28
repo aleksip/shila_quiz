@@ -38,13 +38,17 @@ function shila_quiz_preprocess_pattern_shila_quiz_answer_option(&$variables) {
 }
 
 /**
- * Set default translated button text variable if required. The translation is
- * done here so that the Twig component template does not have to use the Drupal
- * specific translation filter.
- *
  * Implements hook_preprocess_HOOK().
  */
 function shila_quiz_preprocess_pattern_shila_quiz(&$variables) {
+  // Unset empty results variable.
+  if (!isset($variables['results']['field_quiz_results']['#items'])) {
+    unset($variables['results']);
+  }
+
+  // Set default translated button text variable if required. The translation is
+  // done here so that the Twig component template does not have to use the
+  // Drupal specific translation filter.
   if (!isset($variables['button_text']) || empty($variables['button_text'])) {
     $variables['button_text'] = t('Show result');
   }
