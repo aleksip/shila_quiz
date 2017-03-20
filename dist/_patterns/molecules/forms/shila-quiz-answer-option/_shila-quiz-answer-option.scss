@@ -4,7 +4,7 @@
  */
 
 .quiz-answer-option {
-  @include no-bullet;
+  @include shila-no-bullet;
   input[type="radio"],
   label {
     display: inline-block;
