@@ -1,6 +1,9 @@
 {% if points %}
   {% set points %}{{ points }}{% endset %}
 {% endif %}
+{% if feedback_heading %}
+  {% set feedback_heading %}{{ feedback_heading }}{% endset %}
+{% endif %}
 {%
   set classes = [
     'quiz-answer-option',
@@ -12,6 +15,9 @@
   <input type="radio" name="{{ option_group_name }}" value="{{ option_value }}" id="{{ input_id }}">
   <label for="{{ input_id }}">{{ option }}</label>
   <div class="quiz-answer-option__feedback">
+    {% if feedback_heading %}
+      <h3 class="quiz-answer-option__feedback-heading">{{ feedback_heading }}</h3>
+    {% endif %}
     {{ feedback }}
   </div>
 </li>

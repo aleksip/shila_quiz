@@ -28,3 +28,9 @@
   .quiz-answer-option:not(.quiz-answer-option--points-0) & {
   }
 }
+.quiz-answer-option__feedback-heading {
+  .quiz-answer-option--points-0 & {
+  }
+  .quiz-answer-option:not(.quiz-answer-option--points-0) & {
+  }
+}

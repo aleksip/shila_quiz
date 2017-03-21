@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_answer_feedback_heading
+    - paragraphs.paragraphs_type.quiz_answer_option
+id: paragraph.quiz_answer_option.field_answer_feedback_heading
+field_name: field_answer_feedback_heading
+entity_type: paragraph
+bundle: quiz_answer_option
+label: 'Answer feedback heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

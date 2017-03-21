@@ -12,11 +12,16 @@ shila_quiz_answer_option:
       label: Points
       description: How many points are given for selecting this option.
       preview: 1
+    feedback_heading:
+      type: string
+      label: Feedback heading
+      description: Optional feedback heading.
+      preview: Correct!
     feedback:
       type: string
       label: Feedback
       description: Feedback shown to the user when selecting this option.
-      preview: That is correct.
+      preview: This is the correct answer to the question.
     option_group_name:
       type: string
       label: Option group name

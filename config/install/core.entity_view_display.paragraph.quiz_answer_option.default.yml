@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.quiz_answer_option.field_answer_feedback
+    - field.field.paragraph.quiz_answer_option.field_answer_feedback_heading
     - field.field.paragraph.quiz_answer_option.field_answer_points
     - field.field.paragraph.quiz_answer_option.field_plain_content
     - paragraphs.paragraphs_type.quiz_answer_option
@@ -27,6 +28,8 @@ third_party_settings:
         - field_answer_feedback
       option:
         - field_plain_content
+      feedback_heading:
+        - field_answer_feedback_heading
 id: paragraph.quiz_answer_option.default
 targetEntityType: paragraph
 bundle: quiz_answer_option
@@ -38,6 +41,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+  field_answer_feedback_heading:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_answer_points:
     type: number_integer
     weight: 0
