@@ -47,6 +47,7 @@ jQuery(document).ready(function ($) {
 
       // Hide the button and show the matched result.
       button.attr('style', 'display: none');
+      $('.quiz__result').attr('style', 'display: block');
       $('.quiz-result.quiz-result--points-required-' + matched).attr('style', 'display: block');
     });
   }

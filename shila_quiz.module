@@ -41,7 +41,7 @@ function shila_quiz_preprocess_pattern_shila_quiz_answer_option(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function shila_quiz_preprocess_pattern_shila_quiz(&$variables) {
-  // Unset empty results variable.
+  // Unset results variable if empty.
   if (!isset($variables['results']['field_quiz_results']['#items'])) {
     unset($variables['results']);
   }
@@ -52,4 +52,6 @@ function shila_quiz_preprocess_pattern_shila_quiz(&$variables) {
   if (!isset($variables['button_text']) || empty($variables['button_text'])) {
     $variables['button_text'] = t('Show result');
   }
+
+  $variables['result_heading'] = t('Result') . ':';
 }

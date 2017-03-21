@@ -112,6 +112,10 @@ input:checked ~ .quiz-answer-option__feedback {
  * @file
  * organisms/content/shila-quiz/_shila-quiz.scss
  */
+.quiz__result {
+  display: none;
+}
+
 .quiz__result .quiz-result {
   display: none;
 }

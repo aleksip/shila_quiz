@@ -6,6 +6,9 @@
   {% if results %}
     <button disabled>{{ button_text }}</button>
     <div class="quiz__result">
+      {% if result_heading %}
+        <h2 class="quiz__result-heading">{{ result_heading }}</h2>
+      {% endif %}
       {{ results }}
     </div>
   {% endif %}
