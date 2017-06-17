@@ -1,0 +1,19 @@
+{
+    "name": "aleksip/shila_quiz",
+    "type": "drupal-module",
+    "description": "Provides a simple multiple choice quiz implementation",
+    "keywords": ["drupal", "module", "features"],
+    "homepage": "https://github.com/aleksip/shila_quiz",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Aleksi Peebles"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "drupal/ds": "~3.0",
+        "drupal/inline_entity_form": "~1.0",
+        "drupal/paragraphs": "~1.1"
+    }
+}
