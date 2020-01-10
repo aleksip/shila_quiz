@@ -15,7 +15,6 @@ dependencies:
   - shila_core
   - text
   - ui_patterns
-  - ui_patterns_layouts
   - user
 component-libraries:
   shila_quiz:
