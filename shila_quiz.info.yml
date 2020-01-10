@@ -13,7 +13,6 @@ dependencies:
   - paragraphs
   - path
   - shila_core
-  - shila_paragraphs
   - text
   - ui_patterns
   - ui_patterns_layouts
