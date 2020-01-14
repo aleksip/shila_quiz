@@ -1,0 +1,14 @@
+/**
+ * @file
+ * molecules/forms/shila-quiz-question/_shila-quiz-question.scss
+ */
+
+@import "partials/tools/tools.reset";
+
+.quiz-question {
+}
+.quiz-question__answer_options {
+  @include shila-reset-box-model;
+  list-style: none;
+  margin-bottom: 1rem;
+}

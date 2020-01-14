@@ -1,57 +1,58 @@
 <?php
 
 /**
- * Add information about the entity and its parent to the pattern context of
- * quiz_answer_option paragraphs.
- *
- * Implements template_preprocess_ds_entity_view().
+ * Implements hook_preprocess_HOOK().
  */
-function shila_quiz_preprocess_ds_entity_view(&$variables) {
-  if ($variables['content']['#entity_type'] == 'paragraph'
-    && $variables['content']['#bundle'] == 'quiz_answer_option'
-    && isset($variables['content']['#type'])
-    && $variables['content']['#type'] == 'pattern')
-  {
-    $entity = $variables['content']['#entity'];
-    $parentEntity = $entity->getParentEntity();
-    $delta = NULL;
-    $refEntities = $parentEntity->get('field_quiz_answer_options')->referencedEntities();
-    foreach ($refEntities as $i => $refEntity)  {
-      if ($entity->id() == $refEntity->id()) {
-        $delta = $i;
-        break;
+function shila_quiz_preprocess_layout(&$variables) {
+  switch ($variables['content']['#entity_type']) {
+    case 'node':
+      switch ($variables['content']['#bundle']) {
+        case 'quiz':
+          if (!isset($variables['button_text']) || empty($variables['button_text'])) {
+            $variables['button_text'] = t('Show result');
+          }
+          $variables['result_heading'] = t('Result');
+          $variables['result_heading'] .= ':';
+          _shila_quiz_copy_content_variables($variables);
+          if (!isset($variables['results']['field_quiz_results']['#items'])) {
+            unset($variables['results']);
+          }
+          break;
       }
+      break;
+
+    case 'paragraph':
+      switch ($variables['content']['#bundle']) {
+        case 'quiz_answer_option':
+          $entity = $variables['content']['#entity'];
+          $parentEntity = $entity->getParentEntity();
+          $delta = NULL;
+          $refEntities = $parentEntity->get('field_quiz_answer_options')->referencedEntities();
+          foreach ($refEntities as $i => $refEntity) {
+            if ($entity->id() == $refEntity->id()) {
+              $delta = $i;
+              break;
+            }
+          }
+          $variables['option_group_name'] = 'question_' . $parentEntity->id();
+          $variables['option_value'] = 'option_' . $delta;
+        case 'quiz_question':
+        case 'quiz_result':
+          _shila_quiz_copy_content_variables($variables);
+          break;
+      }
+      break;
+  }
+}
+
+function _shila_quiz_copy_content_variables(&$variables) {
+  // Copy each region variable to root, but only if a root variable with that
+  // name does not already exist.
+  /** @var \Drupal\Core\Layout\LayoutDefinition $layout */
+  $layout = $variables['layout'];
+  foreach ($layout->getRegionNames() as $name) {
+    if (!isset($variables[$name]) && isset($variables['content'][$name])) {
+      $variables[$name] = $variables['content'][$name];
     }
-    $variables['content']['#context']['parent_id'] = $parentEntity->id();
-    $variables['content']['#context']['delta'] = $delta;
   }
-}
-
-/**
- * Set pattern variables based on data in the pattern context.
- *
- * Implements hook_preprocess_HOOK().
- */
-function shila_quiz_preprocess_pattern_shila_quiz_answer_option(&$variables) {
-  $variables['option_group_name'] = 'question_' . $variables['context']->getProperty('parent_id');
-  $variables['option_value'] = 'option_' . $variables['context']->getProperty('delta');
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function shila_quiz_preprocess_pattern_shila_quiz(&$variables) {
-  // Unset results variable if empty.
-  if (!isset($variables['results']['field_quiz_results']['#items'])) {
-    unset($variables['results']);
-  }
-
-  // Set default translated button text variable if required. The translation is
-  // done here so that the Twig component template does not have to use the
-  // Drupal specific translation filter.
-  if (!isset($variables['button_text']) || empty($variables['button_text'])) {
-    $variables['button_text'] = t('Show result');
-  }
-
-  $variables['result_heading'] = t('Result') . ':';
 }

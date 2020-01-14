@@ -2,11 +2,11 @@
  * @file
  * molecules/forms/shila-quiz-question/_shila-quiz-question.scss
  */
-
-.quiz-question {
-}
 .quiz-question__answer_options {
-  @include shila-reset-box-model;
+  margin: 0;
+  padding: 0;
+  border: 0;
   list-style: none;
-  margin-bottom: 1rem;
-}
+  margin-bottom: 1rem; }
+
+/*# sourceMappingURL=shila-quiz-question.css.map */

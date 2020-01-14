@@ -1,0 +1,11 @@
+{% set points_required %}{{ points_required }}{% endset %}
+{% set points_required = points_required|striptags|trim %}
+{%
+  set classes = [
+    'quiz-result',
+    'quiz-result--points-required-' ~ points_required,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ result }}
+</div>

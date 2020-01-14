@@ -1,0 +1,23 @@
+/**
+ * @file
+ * molecules/forms/shila-quiz-answer-option/_shila-quiz-answer-option.scss
+ */
+.quiz-answer-option {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0; }
+  .quiz-answer-option input[type="radio"],
+  .quiz-answer-option label {
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle; }
+  .quiz-answer-option label {
+    margin: 0;
+    font-weight: normal; }
+
+.quiz-answer-option__feedback {
+  display: none; }
+  input:checked ~ .quiz-answer-option__feedback {
+    display: block; }
+
+/*# sourceMappingURL=shila-quiz-answer-option.css.map */

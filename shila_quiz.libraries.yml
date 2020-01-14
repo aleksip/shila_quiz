@@ -1,5 +1,12 @@
 shila-quiz-styling:
   version: 1.x
   css:
-    theme:
-      dist/css/shila-quiz.css: {}
+    component:
+      components/shila-quiz/shila-quiz.css: {}
+      components/shila-quiz-answer-option/shila-quiz-answer-option.css: {}
+      components/shila-quiz-question/shila-quiz-question.css: {}
+      components/shila-quiz-result/shila-quiz-result.css: {}
+  js:
+    components/shila-quiz/shila-quiz.js: {}
+  dependencies:
+    - core/jquery

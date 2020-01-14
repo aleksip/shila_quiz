@@ -3,6 +3,8 @@
  * molecules/forms/shila-quiz-answer-option/_shila-quiz-answer-option.scss
  */
 
+@import "partials/tools/tools.lists";
+
 .quiz-answer-option {
   @include shila-no-bullet;
   input[type="radio"],

@@ -1,0 +1,55 @@
+shila_quiz:
+  label: 'Quiz'
+  category: 'Shila Quiz'
+  template: components/shila-quiz/shila-quiz
+  regions:
+    body:
+      label: 'Body'
+    questions:
+      label: 'Questions'
+    button_text:
+      label: 'Button text'
+    results:
+      label: 'Results'
+  library: shila_quiz/shila-quiz-styling
+
+shila_quiz_question:
+  label: 'Quiz Question'
+  category: 'Shila Quiz'
+  template: components/shila-quiz-question/shila-quiz-question
+  regions:
+    question:
+      label: 'Question'
+    answer_options:
+      label: 'Answer options'
+  library: shila_quiz/shila-quiz-styling
+
+shila_quiz_answer_option:
+  label: 'Quiz Answer Option'
+  category: 'Shila Quiz'
+  template: components/shila-quiz-answer-option/shila-quiz-answer-option
+  regions:
+    option:
+      label: 'Option'
+    points:
+      label: 'Points'
+    feedback_heading:
+      label: 'Feedback heading'
+    feedback:
+      label: 'Feedback'
+    option_group_name:
+      label: 'Option group name'
+    option_value:
+      label: 'Option value'
+  library: shila_quiz/shila-quiz-styling
+
+shila_quiz_result:
+  label: 'Quiz Result'
+  category: 'Shila Quiz'
+  template: components/shila-quiz-result/shila-quiz-result
+  regions:
+    points_required:
+      label: 'Points required'
+    result:
+      label: 'Result'
+  library: shila_quiz/shila-quiz-styling

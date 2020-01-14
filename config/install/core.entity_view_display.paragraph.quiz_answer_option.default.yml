@@ -13,14 +13,12 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: pattern_shila_quiz_answer_option
+      id: shila_quiz_answer_option
       path: ''
       library: ''
       disable_css: false
       entity_classes: all_classes
-      settings:
-        pattern:
-          field_templates: only_content
+      settings: {  }
     regions:
       points:
         - field_answer_points

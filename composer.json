@@ -11,9 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
         "drupal/ds": "~3.0",
-        "drupal/inline_entity_form": "~1.0",
         "drupal/paragraphs": "~1.1"
     }
 }

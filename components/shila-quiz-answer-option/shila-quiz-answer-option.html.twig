@@ -1,13 +1,11 @@
-{% if points %}
-  {% set points %}{{ points }}{% endset %}
-{% endif %}
-{% if feedback_heading %}
-  {% set feedback_heading %}{{ feedback_heading }}{% endset %}
-{% endif %}
+{% set points %}{{ points }}{% endset %}
+{% set points = points|striptags|trim %}
+{% set feedback_heading %}{{ feedback_heading }}{% endset %}
+{% set feedback_heading = feedback_heading|striptags|trim %}
 {%
   set classes = [
     'quiz-answer-option',
-    points ? 'quiz-answer-option--points-' ~ points,
+    'quiz-answer-option--points-' ~ points,
   ]
 %}
 {% set input_id %}{{ option_group_name }}_{{ option_value }}{% endset %}
